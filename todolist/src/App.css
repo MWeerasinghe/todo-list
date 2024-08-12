@@ -69,6 +69,10 @@ h2 {
     border-radius: 100px;
 }
 
+.line_through {
+    text-decoration: line-through;
+}
+
 .icon {
     font-size: 18px;
     color: white;
