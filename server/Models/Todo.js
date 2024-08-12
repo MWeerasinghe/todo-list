@@ -6,6 +6,10 @@ const TodoSchema = new mongoose.Schema({
         type: String,
         required: true, // Make the task field required
         trim: true // Automatically trim whitespace
+    },
+    done: {
+        type: Boolean,
+        default: false
     }
 }, {
     timestamps: true // Add createdAt and updatedAt timestamps

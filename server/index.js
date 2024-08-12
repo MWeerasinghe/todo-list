@@ -11,6 +11,19 @@ mongoose.connect("mongodb://127.0.0.1:27017/todo")
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Failed to connect to MongoDB', err));
 
+app.get('/get',(req,res) => {
+    TodoModel.find()
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+})
+
+app.put('/update/:id', (req,res) => {
+    const {id} = req.params;
+    TodoModel.findByIdAndUpdate({_id: id},{done: true})
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+})
+
 app.post('/add', (req, res) => {
     const task = req.body.task;
     TodoModel.create({
